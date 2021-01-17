@@ -11,6 +11,12 @@ def getPublicIP() -> str:
     return data["ip"]
 
 
+def queryIP(host: str) -> str:
+    url = "https://ydns.io/api/v1/ip?host={}.ynds.eu"
+    r = requests.get(url)
+    return r.text
+
+
 class YDNS:
 
     def __init__(self, username: str, password: str):
